@@ -1,0 +1,23 @@
+namespace CRMuSR2::inline Simulation::inline Messenger {
+
+template<typename AReceiver>
+NeutrinoKillerMessenger<AReceiver>::NeutrinoKillerMessenger() :
+    Mustard::Geant4X::SingletonMessenger<NeutrinoKillerMessenger<AReceiver>, AReceiver>{},
+    fEnableNeutrinoKiller{} {
+
+    fEnableNeutrinoKiller = std::make_unique<G4UIcmdWithABool>("/CRMuSR2/Action/EnableNeutrinoKiller", this);
+    fEnableNeutrinoKiller->SetGuidance("Kill neutrino in stepping action if enabled (enable by default).");
+    fEnableNeutrinoKiller->SetParameterName("bool", false);
+    fEnableNeutrinoKiller->AvailableForStates(G4State_Idle);
+}
+
+template<typename AReceiver>
+auto NeutrinoKillerMessenger<AReceiver>::SetNewValue(G4UIcommand* command, G4String value) -> void {
+    if (command == fEnableNeutrinoKiller.get()) {
+        this->template Deliver<AReceiver>([&](auto&& r) {
+            r.EnableNeutrinoKiller(fEnableNeutrinoKiller->GetNewBoolValue(value));
+        });
+    }
+}
+
+} // namespace CRMuSR2::inline Simulation::inline Messenger

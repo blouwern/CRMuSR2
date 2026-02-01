@@ -1,0 +1,7 @@
+file(GLOB SimCRMu_SCRIPTS ${CMAKE_CURRENT_SOURCE_DIR}/scripts/*)
+foreach(_scripts ${SimCRMu_SCRIPTS})
+    set(SimCRMu_SCRIPTS_COPY_DIR SimCRMu)
+    file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${SimCRMu_SCRIPTS_COPY_DIR})
+    configure_file(${_scripts} ${CMAKE_BINARY_DIR}/${SimCRMu_SCRIPTS_COPY_DIR} COPYONLY)
+    install(FILES ${_scripts} DESTINATION ${CRMuSR2_DATAROOTDIR}/${SimCRMu_SCRIPTS_COPY_DIR})
+endforeach()
