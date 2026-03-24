@@ -19,8 +19,8 @@ constexpr auto defaultMacro = {
     "/Mustard/EcoMug/Position/HSphere 0 0 0 m",
     "/Mustard/EcoMug/Size/HSphere/Radius 4 m",
     "",
-    "#/CRMuSR2/Analysis/FilePath SimCRMu_untitled",
-    "#/CRMuSR2/Analysis/FileMode RECREATE",
+    // "/CRMuSR2/Analysis/FilePath SimCRMu_untitled",
+    // "/CRMuSR2/Analysis/FileMode RECREATE",
     "",
 #if MUSTARD_USE_G4VIS
     "#############################################################################",
