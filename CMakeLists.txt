@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
+# export compile commands for language server to trace tags
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Enable MSVC_RUNTIME_LIBRARY target property
 # See https://cmake.org/cmake/help/latest/policy/CMP0091.html
@@ -92,11 +94,11 @@ include(${CRMUSR2_PROJECT_CMAKE_DIR}/LookForGenFit.cmake)
 # include(${CRMUSR2_PROJECT_CMAKE_DIR}/LookForPMP.cmake)
 
 # data
-# if(CRMUSR2_INSTALL_OFFLINE_DATA)
-# include(${CRMUSR2_PROJECT_CMAKE_DIR}/LookForCRMuSR2OfflineData.cmake)
-# else()
-# message(NOTICE "***Notice: Offline data installation disabled, offline data need to be installed manually")
-# endif()
+if(CRMUSR2_INSTALL_OFFLINE_DATA)
+include(${CRMUSR2_PROJECT_CMAKE_DIR}/LookForCRMuSR2OfflineData.cmake)
+else()
+message(NOTICE "***Notice: Offline data installation disabled, offline data need to be installed manually")
+endif()
 
 # =============================================================================
 # Let's go!

@@ -2,8 +2,6 @@
 #include "CRMuSR2/Detector/Definition/Target.h++"
 #include "CRMuSR2/Detector/Definition/World.h++"
 
-#include "CRMuSR2/Detector/Description/PDRModel.h++"
-
 #include "SimCRMu/Detector/DetectorConstruction.h++"
 #include "SimCRMu/Messenger/DetectorMessenger.h++"
 #include "SimCRMu/SD/PDRPMSD.h++"
@@ -29,7 +27,7 @@ auto DetectorConstruction::Construct() -> G4VPhysicalVolume* {
     fWorld = std::make_unique<World>();
     fWorld->NewDaughter<Target>(fCheckOverlap);
     auto& pdr{fWorld->NewDaughter<PDR>(fCheckOverlap)};
-    const auto pdrName{CRMuSR2::Detector::Description::PDRModel::Instance().Name()};
+    const std::string pdrName{"PDR"};
     const auto& pdrPMSD{new SD::PDRPMSD(pdrName + "SiPM")};
     const auto& pdrSD{new SD::PDRSD(pdrName + "Scintillator", pdrPMSD)};
 

@@ -29,7 +29,7 @@ public:
     auto PDRSupportHeight(double val) -> void { fPDRSupportHeight = val; }
     auto PDRInnerPlatformHeight(double val) -> void { fPDRInnerPlatformHeight = val; }
     auto PDRSupportSpacing(double val) -> void { fPDRSupportSpacing = val; }
-    
+
 
 private:
     auto ImportAllValue(const YAML::Node& node) -> void override;
