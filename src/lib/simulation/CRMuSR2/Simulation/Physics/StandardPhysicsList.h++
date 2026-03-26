@@ -1,9 +1,8 @@
 #pragma once
 
-#include "CRMuSR2/Simulation/Physics/StandardPhysicsListMessenger.h++"
-
 #include "Mustard/Env/Memory/PassiveSingleton.h++"
 
+#include "CRMuSR2/Simulation/Physics/StandardPhysicsListMessenger.h++"
 #include "QBBC.hh"
 
 namespace CRMuSR2::inline Simulation::inline Physics {
@@ -11,7 +10,7 @@ namespace CRMuSR2::inline Simulation::inline Physics {
 class StandardPhysicsListBase : public QBBC {
 public:
     StandardPhysicsListBase();
-    virtual ~StandardPhysicsListBase() override = default;
+    ~StandardPhysicsListBase() override = default;
 
     auto UseRadioactiveDecayPhysics() -> void;
     auto UseOpticalPhysics() -> void;

@@ -21,7 +21,6 @@ constexpr auto defaultMacro = {
     "",
     "/Mustard/Analysis/FilePath SimCRMu_untitled",
     "/Mustard/Analysis/FileMode RECREATE",
-    // "/CRMuSR2/Physics/UseOpticalPhysics",
     "",
 #if MUSTARD_USE_G4VIS
     "#############################################################################",
